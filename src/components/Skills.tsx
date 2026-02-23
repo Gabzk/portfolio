@@ -50,18 +50,18 @@ export default function Skills() {
 
           {/* Skills Grid */}
           <div className="grid md:grid-cols-3 gap-6">
-            {/* Frontend */}
-            <SkillCategory
-              title="Frontend"
-              items={skills.frontend}
-              icon={<Monitor size={24} aria-hidden="true" />}
-            />
-
             {/* Backend */}
             <SkillCategory
               title="Backend"
               items={skills.backend}
               icon={<Server size={24} aria-hidden="true" />}
+            />
+
+            {/* Frontend */}
+            <SkillCategory
+              title="Frontend"
+              items={skills.frontend}
+              icon={<Monitor size={24} aria-hidden="true" />}
             />
 
             {/* Tools */}
@@ -77,7 +77,7 @@ export default function Skills() {
             <div className="inline-flex items-center gap-3 px-6 py-3 bg-linear-to-r from-emerald-500/10 to-blue-500/10 border border-emerald-500/30 rounded-full">
               <div className="w-3 h-3 bg-emerald-400 rounded-full animate-pulse" />
               <span className="text-gray-300 font-medium">
-                Desenvolvedor Full-Stack pronto para novos desafios
+                Desenvolvedor Backend pronto para novos desafios
               </span>
             </div>
           </div>

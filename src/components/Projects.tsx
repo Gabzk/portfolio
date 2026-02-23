@@ -28,36 +28,41 @@ function ProjectCard({ project }: { project: Project }) {
   return (
     <div className="bg-gray-800 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-300 group">
       {/* Project Image */}
-      <div className="relative h-56 bg-linear-to-br from-gray-700 to-gray-800 overflow-hidden">
-        {project.image && project.image !== "/projeto-preview.png" ? (
+      <div className="relative h-56 bg-linear-to-br from-gray-800 to-gray-900 border-b border-gray-700 overflow-hidden group/image">
+        {project.image &&
+          project.image !== "/projeto-preview.png" &&
+          project.title === "Econnect" ? (
           <Image
             src={project.image}
             alt={project.title}
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
+            className="object-cover group-hover/image:scale-105 transition-transform duration-500"
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center">
-            <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-4 bg-emerald-500/20 rounded-2xl flex items-center justify-center">
-                <Code
-                  size={40}
-                  className="text-emerald-400"
-                  aria-hidden="true"
-                />
-              </div>
-              <p className="text-gray-500 text-sm">Preview do Projeto</p>
+          <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gray-800/80 group-hover/image:bg-gray-800 transition-colors">
+            <div className="w-16 h-16 mx-auto mb-4 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl flex items-center justify-center shadow-inner">
+              <Code
+                size={32}
+                className="text-emerald-400/80 group-hover/image:text-emerald-400 transition-colors"
+                aria-hidden="true"
+              />
             </div>
+            <h4 className="text-gray-300 font-semibold mb-1">{project.title}</h4>
+            <p className="text-gray-500 text-xs uppercase tracking-widest font-medium">
+              Código / Backend
+            </p>
           </div>
         )}
 
-        {/* Full-Stack Badge */}
-        <div className="absolute top-4 left-4">
-          <span className="px-3 py-1 bg-emerald-500 text-white text-xs font-bold rounded-full flex items-center gap-1.5">
-            <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
-            Full-Stack
-          </span>
-        </div>
+        {/* Em Destaque Badge */}
+        {project.highlighted && (
+          <div className="absolute top-4 left-4 z-10">
+            <span className="px-3 py-1 bg-emerald-500 text-white text-xs font-bold rounded-full flex items-center gap-1.5 shadow-lg">
+              <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
+              Em Destaque
+            </span>
+          </div>
+        )}
 
         {/* Overlay with links */}
         <div className="absolute inset-0 bg-gray-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
@@ -109,15 +114,19 @@ function ProjectCard({ project }: { project: Project }) {
             Arquitetura
           </p>
           <div className="flex items-center justify-between gap-2">
-            <div className="flex-1 text-center p-2 bg-blue-500/10 rounded-lg border border-blue-500/30">
-              <p className="text-blue-400 text-xs font-medium">Frontend</p>
-              <p className="text-gray-400 text-xs mt-1">
-                {project.technologies.frontend[0]}
-              </p>
-            </div>
-            <div className="text-gray-600">
-              <ArrowLeftRight size={24} aria-hidden="true" />
-            </div>
+            {project.technologies.frontend && project.technologies.frontend.length > 0 && (
+              <>
+                <div className="flex-1 text-center p-2 bg-blue-500/10 rounded-lg border border-blue-500/30">
+                  <p className="text-blue-400 text-xs font-medium">Frontend</p>
+                  <p className="text-gray-400 text-xs mt-1">
+                    {project.technologies.frontend[0]}
+                  </p>
+                </div>
+                <div className="text-gray-600">
+                  <ArrowLeftRight size={24} aria-hidden="true" />
+                </div>
+              </>
+            )}
             <div className="flex-1 text-center p-2 bg-emerald-500/10 rounded-lg border border-emerald-500/30">
               <p className="text-emerald-400 text-xs font-medium">Backend</p>
               <p className="text-gray-400 text-xs mt-1">
@@ -202,8 +211,8 @@ export default function Projects() {
             </h2>
             <div className="w-20 h-1 bg-emerald-400 mx-auto rounded-full" />
             <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
-              Confira meu projeto full-stack que demonstra minhas habilidades em
-              desenvolvimento frontend e backend.
+              Confira meus projetos, demonstrando minhas habilidades com
+              arquitetura backend e construção de APIs escaláveis.
             </p>
           </div>
 
