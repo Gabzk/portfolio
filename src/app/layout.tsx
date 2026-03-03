@@ -13,13 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Gabriel Alves | Desenvolvedor Full-Stack",
+  title: "Gabriel Alves | Desenvolvedor Backend",
   description:
-    "Portfólio de Gabriel Alves - Desenvolvedor Full-Stack especializado em React, Next.js, Node.js e mais. Confira meus projetos e habilidades.",
+    "Portfólio de Gabriel Alves - Desenvolvedor Backend especializado em Python, Django, Node.js e mais. Confira meus projetos e habilidades.",
   keywords: [
-    "desenvolvedor full-stack",
-    "react",
-    "next.js",
+    "desenvolvedor backend",
+    "python",
+    "django",
     "node.js",
     "typescript",
     "portfolio",
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Gabriel Alves" }],
   openGraph: {
-    title: "Gabriel Alves | Desenvolvedor Full-Stack",
+    title: "Gabriel Alves | Desenvolvedor Backend",
     description:
-      "Portfólio de Gabriel Alves - Desenvolvedor Full-Stack especializado em React, Next.js, Node.js e mais.",
+      "Portfólio de Gabriel Alves - Desenvolvedor Backend especializado em Python, Django, Node.js e mais.",
     type: "website",
     locale: "pt_BR",
   },
